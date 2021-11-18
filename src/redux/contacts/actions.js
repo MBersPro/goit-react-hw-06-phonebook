@@ -5,9 +5,16 @@ export const addNewContact = (contact) => {
     };
 };
 
-export const getAllContacts = (contacts) => {
+export const deleteContact = (id) => {
     return {
-        type: "contacts/getAllContacts",
-        payload: contacts
-    };
-};
+        type: "contacts/deleteContact",
+        payload: id
+    }
+}
+
+export const filterName = (name) => {
+    return {
+        type: "name/filterName",
+        payload: name
+    } 
+}

@@ -5,7 +5,6 @@ import ContactForm from "./contactForm/ContactForm";
 import ContactList from "./contactList/ContactList";
 import Filter from "./filter/Filter";
 import { connect } from "react-redux";
-import { decrement, increment } from "../redux/counter/action";
 
 const defaultChooser = () => {
   return (
@@ -18,66 +17,40 @@ const defaultChooser = () => {
   );
 };
 
-const App = (props) => {
-  const [contacts, setContacts] = useState(defaultChooser());
-  const [filter, setFilter] = useState("");
+const App = () => {
 
-  useEffect(() => {
-    localStorage.setItem("contacts", JSON.stringify(contacts));
-  }, [contacts]);
+  // useEffect(() => {
+  //   localStorage.setItem("contacts", JSON.stringify(contacts));
+  // }, [contacts]);
 
-  const addContact = (contact) => {
-    const id = uuidv4();
-    if (
-      contacts.some(
-        (item) => item.name.toLowerCase() === contact.name.toLowerCase()
-      )
-    ) {
-      return alert(`${contact.name} is already in contacts.`);
-    }
-    setContacts((prev) => [...prev, { ...contact, id }]);
-  };
+  // const addContact = (contact) => {
+  //   const id = uuidv4();
+  //   if (
+  //     contacts.some(
+  //       (item) => item.name.toLowerCase() === contact.name.toLowerCase()
+  //     )
+  //   ) {
+  //     return alert(`${contact.name} is already in contacts.`);
+  //   }
+  //   setContacts((prev) => [...prev, { ...contact, id }]);
+  // };
 
-  const deleteContact = (e) => {
-    const { id } = e.target;
-    setContacts((prev) => [...prev.filter((contact) => contact.id !== id)]);
-  };
-
-  const getFilteredContacts = () =>
-    contacts.filter((contact) =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
-    );
-
-  const ssetFilter = (e) => setFilter(e.target.value);
+  // const getFilteredContacts = () =>
+  //   contacts.filter((contact) =>
+  //     contact.name.toLowerCase().includes(filter.toLowerCase())
+  //   );
 
   return (
     <>
       <Section title={"Phonebook"}>
-        <ContactForm addContact={addContact} />
+        <ContactForm />
       </Section>
       <Section title={"Contacts"}>
-        <Filter setFilter={ssetFilter} filter={filter} />
-        <ContactList
-          contacts={getFilteredContacts()}
-          deleteContact={deleteContact}
-        />
+        <Filter />
+        <ContactList/>
       </Section>
-      <p>Count: {props.count}</p>
-      <button onClick={props.increment}>Increment</button>
-      <button onClick={props.decrement}>Decrement</button>
     </>
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    count: state.count,
-  };
-};
-
-const mapDispatchToProps = {
-  increment, decrement
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
-// export default App;
+export default App;
