@@ -1,17 +1,11 @@
-import { createStore } from "redux";
+import { combineReducers, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
+import contactsReducer from "./contacts/reducers";
 
-const reducer = (state = { count: 0, name: "Alex" }, action) => {
-  switch (action.type) {
-    case "counter/increment":
-      return { ...state, count: state.count + action.payload };
-    case "counter/decrement":
-      return { ...state, count: state.count - action.payload };
-    default:
-      return state;
-  }
-};
+// const rootReducer = combineReducers({
+//   contacts: contactsReducer
+// });
 
-const store = createStore(reducer, composeWithDevTools());
+const store = createStore(contactsReducer, composeWithDevTools());
 
 export default store;
