@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { form, label, input } from "./ContactForm.module.css";
 import { connect } from "react-redux";
 import { addNewContact } from "../../redux/contacts/actions";
+import PropTypes from "prop-types";
 
 const initialState = {
   name: "",
@@ -54,6 +55,10 @@ const ContactForm = ({ addNewContact }) => {
       </form>
     </>
   );
+};
+
+ContactForm.PropTypes = {
+  addNewContact: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = {

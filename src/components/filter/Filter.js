@@ -19,8 +19,9 @@ const Filter = ({ filterName }) => {
 };
 
 Filter.propTypes = {
-  setFilter: PropTypes.func.isRequired,
-  filter: PropTypes.func.isRequired,
+  // setFilter: PropTypes.func.isRequired,
+  // filter: PropTypes.func.isRequired,
+  filterName: PropTypes.func.isRequired,
 };
 
 // const mapStateToProps = (state) => {
