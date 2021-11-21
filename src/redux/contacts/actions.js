@@ -1,20 +1,23 @@
-export const addNewContact = (contact) => {
+import { ADDNEWCONTACT, DELETECONTACT, FILTERNAME } from "./phoneBookTypes";
+
+
+const addNewContact = (contact) => {
     return {
-        type: "contacts/addNewContact",
+        type: ADDNEWCONTACT,
         payload: contact
     };
 };
 
 export const deleteContact = (id) => {
     return {
-        type: "contacts/deleteContact",
+        type: DELETECONTACT,
         payload: id
     }
 }
 
 export const filterName = (name) => {
     return {
-        type: "name/filterName",
+        type: FILTERNAME,
         payload: name
     } 
 }
