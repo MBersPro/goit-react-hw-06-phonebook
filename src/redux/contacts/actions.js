@@ -1,23 +1,23 @@
+import { createAction } from "@reduxjs/toolkit";
 import { ADDNEWCONTACT, DELETECONTACT, FILTERNAME } from "./phoneBookTypes";
 
+const addNewContact = createAction(ADDNEWCONTACT);
+const deleteContact = createAction(DELETECONTACT);
+const filterName = createAction(FILTERNAME);
 
-const addNewContact = (contact) => {
-    return {
-        type: ADDNEWCONTACT,
-        payload: contact
-    };
-};
+// const addNewContact = (payload) => ({
+//   type: ADDNEWCONTACT,
+//   payload,
+// });
 
-export const deleteContact = (id) => {
-    return {
-        type: DELETECONTACT,
-        payload: id
-    }
-}
+// const deleteContact = (payload) => ({
+//   type: DELETECONTACT,
+//   payload,
+// });
 
-export const filterName = (name) => {
-    return {
-        type: FILTERNAME,
-        payload: name
-    } 
-}
+// const filterName = (payload) => ({
+//   type: FILTERNAME,
+//   payload,
+// });
+
+export { addNewContact, deleteContact, filterName };

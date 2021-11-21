@@ -1,10 +1,10 @@
-import React, {useState} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { filterName } from "../../redux/contacts/actions";
 
 const Filter = ({ filterName }) => {
-  const [value, setValue] = useState("");
+  // const [value, setValue] = useState("");
   const setFilter = ({ target }) => {
       const { value } = target;
       filterName(value);
